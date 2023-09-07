@@ -29,3 +29,5 @@ Contextualizar arquitetura e inserir imagem
 <p align="center">
 <img src="./doc/prints/initsh.gif" width="800px" height="auto">
 </p>
+
+## Lembrar de criar o script install_dependencies.sh
