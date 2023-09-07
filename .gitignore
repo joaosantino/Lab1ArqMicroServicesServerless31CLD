@@ -11,3 +11,6 @@ infra/first_config/lambda.tf
 infra/first_config/variables.tf
 infra/first_config/apigateway.tf
 infra/first_config/*terraform*
+infra/first_config/bucket_delete.json
+infra/first_config/tmp.json
+infra/output_upload_lambda.txt

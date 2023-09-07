@@ -1,12 +1,12 @@
 #!/bin/bash
 
-initial_message="Apenas prossiga caso tenha lido o README.md...."
-default_message="Pressione qualquer tecla para continuar...."
+initial_message="ATENÇÃO!!! Apenas prossiga caso tenha lido o README.md !"
+default_message="Pressione ENTER para continuar ou CTRL + C para sair...."
 
 read_from_user(){
     read -p "${1}" my_var 
 }
-read_from_user "${initial_message}"
+read_from_user "${initial_message} ${default_message}"
 # shellcheck disable=SC2164
 npm -g install js-beautify
 
