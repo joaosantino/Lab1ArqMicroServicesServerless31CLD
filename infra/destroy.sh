@@ -1,6 +1,6 @@
 #!/bin/bash
 
-initial_message="Tem certeza que deseja deletar tudo? Pressione qualquer tecla para continuar...."
+initial_message="Tem certeza que deseja deletar tudo? Pressione ENTER para continuar ou CTRL + C para sair...."
 
 read_from_user(){
     read -p "${1}" my_var 
