@@ -1,0 +1,38 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "xray:PutTraceSegments",
+        "xray:PutTelemetryRecords"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "logs:CreateLogGroup",
+      "Resource": "arn:aws:logs:AWS_REGION:ID_ACCOUNT:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:AWS_REGION:ID_ACCOUNT:log-group:/aws/lambda/ahttp-crud-tutorial-function:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+          "dynamodb:PutItem",
+          "dynamodb:DeleteItem",
+          "dynamodb:GetItem",
+          "dynamodb:Scan",
+          "dynamodb:Query",
+          "dynamodb:UpdateItem"
+      ],
+      "Resource": "arn:aws:dynamodb:AWS_REGION:ID_ACCOUNT:table/http-crud-tutorial-items"
+  }
+  ]
+}
