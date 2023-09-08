@@ -1,6 +1,6 @@
 ## Laboratório 1 de Arquitetura de MicroServices and Serverless Turma 31CLD
 Repositório contendo todo o conteudo do 
-[Laboratório 1](https://catalog.us-east-1.prod.workshops.aws/workshops/2c8321cb-812c-45a9-927d-206eea3a500f/en-US/000-gettingstarted) da matéria Arquitetura Microservices e Serverless. O laboratório consiste em provisionar uma aplicação
+[Laboratório 1](https://catalog.us-east-1.prod.workshops.aws/workshops/2c8321cb-812c-45a9-927d-206eea3a500f/en-US/000-gettingstarted) da matéria Arquitetura Microservices e Serverless.
 
 Neste laboratório será realizada a criação de alguns serviços Serverless na AWS, como o **AWS API Gateway** em modo HTTP API, uma aplicação em NodeJs 14x em uma **AWS Lambda Function** e uma base de dados NOSQL no **AWS DynamoDB**. Como complemento ao funcionamento deste laboratório, também será provisionado recursos auxiliares para o correto funcionamento de toda a infraestrutura, como o serviço de armazenamento de objetos **AWS S3**, criação de Policies e Roles no **AWS IAM**, que posssibilita o permissionamento e que serviços assumam funções e assim possam se integrar e modificar o comportamento em outros serviços. Nossa aplicação também salvará logs no **AWS CloudWatch Logs**.
 
@@ -36,7 +36,7 @@ Estas serão as dependências utilizadas por toda a infraestrutura. Recomendo qu
 ### -> Instalação de dependências:
 Após realizar o clone do repositório na sua máquina, vá até a pastadependencies/ e procure pela primeira parte do arquivoInstalar_Dependencias_v1.zip e realize a extração do mesmo.
 
-Após extração, execute o arquivo Instalar_Dependencias_v1.exe, o mesmo iráinstalar todas as dependências informadas no tópico anterior. 
+Após extração, execute o arquivo Instalar_Dependencias_v1.exe, o mesmo irá instalar todas as dependências informadas no tópico anterior. 
 
 Reinicie seu computador para que as variáveis de ambiente sejam aplicadas.
 
