@@ -9,7 +9,7 @@ cd ..
 
 bucket_dir=s3://"${bucket_name}/apps/${lambda_name}/"
 
-zip a "${zip_file_name}" ../apps/${lambda_name}/index.js
+7z a "${zip_file_name}" ../apps/${lambda_name}/index.js
 echo "-> Arquivo ${zip_file_name} compactado"
 
 aws s3 cp "${zip_file_name}" "${bucket_dir}" --sse AES256
