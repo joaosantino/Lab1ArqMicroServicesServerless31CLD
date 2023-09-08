@@ -34,7 +34,7 @@ Estas serão as dependências utilizadas por toda a infraestrutura. Recomendo qu
 
 ## Como rodar
 ### -> Instalação de dependências:
-Após realizar o clone do repositório na sua máquina, vá até a pastadependencies/ e procure pela primeira parte do arquivoInstalar_Dependencias_v1.zip e realize a extração do mesmo.
+Após realizar o clone do repositório na sua máquina, vá até a pasta dependencies/ e procure pela primeira parte do arquivoInstalar_Dependencias_v1.zip e realize a extração do mesmo.
 
 Após extração, execute o arquivo Instalar_Dependencias_v1.exe, o mesmo irá instalar todas as dependências informadas no tópico anterior. 
 
