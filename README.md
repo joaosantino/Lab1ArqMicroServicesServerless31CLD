@@ -33,13 +33,66 @@ Estas serão as dependências utilizadas por toda a infraestrutura. Recomendo qu
 - [Visual Studio Code](https://code.visualstudio.com/download) (ou seu IDE preferido)
 
 ## Como rodar
-    - TODO Como criar conta AWS
-    - TODO Boas práticas com usuário Root
-    - TODO Criação de usuário ADM
-    - TODO Configuração de AccessKeys e SecretsKey
-    - TODO Instalação das dependencias
-    - TODO Rodando os scripts init e destroy
+### -> Instalação de dependências:
+    Após realizar o clone do repositório na sua máquina, vá até a pasta dependencies/ e procure pela primeira parte do arquivo Instalar_Dependencias_v1.zip e realize a extração do mesmo.
+
+    Após extração, execute o arquivo Instalar_Dependencias_v1.exe, o mesmo irá instalar todas as dependências informadas no tópico anterior. 
+    
+    Reinicie seu computador para que as variáveis de ambiente sejam aplicadas.
+
+### -> Configuração do ambiente:
+    Neste passo, você já terá todas as dependências funcionais para este laboratório. Abra o IDE de sua preferência, contanto que o terminal Default da sua IDE seja o GitBash, caso não tenha essa configuração veja nas imagens abaixo como fazer:
 
 <p align="center">
-<img src="./doc/prints/initsh.gif" width="800px" height="auto">
+<img src="./doc/VisualStudioTerminalConfig.png" width="800px" height="auto">
 </p>
+
+    Configurando o Microsoft Visual Studio Code com o terminal default sendo o GitBash
+
+<p align="center">
+<img src="./doc/JetBrainsTerminalConfig.png" width="800px" height="auto">
+</p>
+
+    Configurando o JetBrains IDE PyCharm com o terminal default sendo o GitBash.
+    
+    Note que as IDE's da JetBrains seguem os mesmos conceitos, logo se você usa o WebStorm ou IntelliJ IDEA, você seguirá o mesmo passo.
+    
+    Agora navegue pelo terminal em seu IDE até a pasta infra utilizando o comando:
+    
+        -> cd /infra
+
+    E execute o comando:
+
+        -> ./init_sh
+
+    Conforme GIF abaixo:
+
+<p align="center">
+<img src="./doc/init_sh.gif" width="800px" height="auto">
+</p>
+
+<h5 align="center">Execução do script init.sh</h5>
+
+    Fique atento ao terminal, pois diversas vezes será solicitada a interação do usuário!
+    
+    Após todos os recursos terem sido criados, será enviado para o API Gateway provisionado nesta ordem as seguintes requisições:
+
+        - PUT /items
+        - GET /items
+        - GET /items/{id}
+        - DELETE /items/{id}
+    
+    E esta deve ser a saída final do script init.sh:
+
+<p align="center">
+<img src="./doc/destroy_sh.gif" width="800px" height="auto">
+</p>
+
+<h5 align="center">Execução do script destroy.sh</h5>
+
+    Para ver como deve ser a saída correta de ambos os scripts executados acima, execute estes comandos em seu terminal:
+
+        -  cat doc/scripts_output/init.log
+        -  cat doc/scripts_output/destroy.log
+
+    Desta forma, o conteúdo do arquivo estará exatamente igual ao do seu terminal, abrindo-o pelo IDE você verá caracteres especiais que indicam alguma cor para o terminal e utilizando o comando cat você verá a saída do script corretamente.
