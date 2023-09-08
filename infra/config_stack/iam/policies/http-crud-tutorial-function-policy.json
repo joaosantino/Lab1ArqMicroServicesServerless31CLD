@@ -20,7 +20,7 @@
         "logs:CreateLogStream",
         "logs:PutLogEvents"
       ],
-      "Resource": "arn:aws:logs:AWS_REGION:ID_ACCOUNT:log-group:/aws/lambda/ahttp-crud-tutorial-function:*"
+      "Resource": "arn:aws:logs:AWS_REGION:ID_ACCOUNT:log-group:/aws/lambda/http-crud-tutorial-function:*"
     },
     {
       "Effect": "Allow",

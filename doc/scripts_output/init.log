@@ -1,0 +1,568 @@
+
+-----------------------------Iniciando o Terraform-------------------------------
+
+[0m[1mInitializing the backend...[0m
+
+[0m[1mInitializing provider plugins...[0m
+- Finding hashicorp/aws versions matching "~> 5.13"...
+- Finding latest version of hashicorp/random...
+- Installing hashicorp/aws v5.16.0...
+- Installed hashicorp/aws v5.16.0 (signed by HashiCorp)
+- Installing hashicorp/random v3.5.1...
+- Installed hashicorp/random v3.5.1 (signed by HashiCorp)
+
+Terraform has created a lock file [1m.terraform.lock.hcl[0m to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.[0m
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+--------------------------------------------------------------------------------------
+
+-----------------------------Validando as configurações iniciais-------------------------------
+[0m[1mdata.aws_region.current: Reading...[0m[0m
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mdata.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 1s [id=ID_CONTA_AWS][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_s3_bucket.bucket[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket" "bucket" {
+      [32m+[0m[0m acceleration_status         = (known after apply)
+      [32m+[0m[0m acl                         = (known after apply)
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m bucket                      = (known after apply)
+      [32m+[0m[0m bucket_domain_name          = (known after apply)
+      [32m+[0m[0m bucket_prefix               = (known after apply)
+      [32m+[0m[0m bucket_regional_domain_name = (known after apply)
+      [32m+[0m[0m force_destroy               = true
+      [32m+[0m[0m hosted_zone_id              = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m object_lock_enabled         = (known after apply)
+      [32m+[0m[0m policy                      = (known after apply)
+      [32m+[0m[0m region                      = (known after apply)
+      [32m+[0m[0m request_payer               = (known after apply)
+      [32m+[0m[0m tags_all                    = (known after apply)
+      [32m+[0m[0m website_domain              = (known after apply)
+      [32m+[0m[0m website_endpoint            = (known after apply)
+    }
+
+[1m  # aws_s3_bucket_server_side_encryption_configuration.bucket_sse_config[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_sse_config" {
+      [32m+[0m[0m bucket = (known after apply)
+      [32m+[0m[0m id     = (known after apply)
+
+      [32m+[0m[0m rule {
+          [32m+[0m[0m apply_server_side_encryption_by_default {
+              [32m+[0m[0m sse_algorithm = "AES256"
+            }
+        }
+    }
+
+[1m  # aws_s3_bucket_versioning.bucket_versioning[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_versioning" "bucket_versioning" {
+      [32m+[0m[0m bucket = (known after apply)
+      [32m+[0m[0m id     = (known after apply)
+
+      [32m+[0m[0m versioning_configuration {
+          [32m+[0m[0m mfa_delete = (known after apply)
+          [32m+[0m[0m status     = "Enabled"
+        }
+    }
+
+[1m  # random_uuid.unique_id[0m will be created
+[0m  [32m+[0m[0m resource "random_uuid" "unique_id" {
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m result = (known after apply)
+    }
+
+[1mPlan:[0m 4 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m aws_region  = "us-east-1"
+  [32m+[0m[0m bucket_name = (known after apply)
+  [32m+[0m[0m id_account  = "ID_CONTA_AWS"
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
+----------------------------------------------------------------------------------------------------\n
+
+-----------------------------Criando recursos iniciais-------------------------------
+[0m[1mdata.aws_region.current: Reading...[0m[0m
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mdata.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 1s [id=ID_CONTA_AWS][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_s3_bucket.bucket[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket" "bucket" {
+      [32m+[0m[0m acceleration_status         = (known after apply)
+      [32m+[0m[0m acl                         = (known after apply)
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m bucket                      = (known after apply)
+      [32m+[0m[0m bucket_domain_name          = (known after apply)
+      [32m+[0m[0m bucket_prefix               = (known after apply)
+      [32m+[0m[0m bucket_regional_domain_name = (known after apply)
+      [32m+[0m[0m force_destroy               = true
+      [32m+[0m[0m hosted_zone_id              = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m object_lock_enabled         = (known after apply)
+      [32m+[0m[0m policy                      = (known after apply)
+      [32m+[0m[0m region                      = (known after apply)
+      [32m+[0m[0m request_payer               = (known after apply)
+      [32m+[0m[0m tags_all                    = (known after apply)
+      [32m+[0m[0m website_domain              = (known after apply)
+      [32m+[0m[0m website_endpoint            = (known after apply)
+    }
+
+[1m  # aws_s3_bucket_server_side_encryption_configuration.bucket_sse_config[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_sse_config" {
+      [32m+[0m[0m bucket = (known after apply)
+      [32m+[0m[0m id     = (known after apply)
+
+      [32m+[0m[0m rule {
+          [32m+[0m[0m apply_server_side_encryption_by_default {
+              [32m+[0m[0m sse_algorithm = "AES256"
+            }
+        }
+    }
+
+[1m  # aws_s3_bucket_versioning.bucket_versioning[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_versioning" "bucket_versioning" {
+      [32m+[0m[0m bucket = (known after apply)
+      [32m+[0m[0m id     = (known after apply)
+
+      [32m+[0m[0m versioning_configuration {
+          [32m+[0m[0m mfa_delete = (known after apply)
+          [32m+[0m[0m status     = "Enabled"
+        }
+    }
+
+[1m  # random_uuid.unique_id[0m will be created
+[0m  [32m+[0m[0m resource "random_uuid" "unique_id" {
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m result = (known after apply)
+    }
+
+[1mPlan:[0m 4 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m aws_region  = "us-east-1"
+  [32m+[0m[0m bucket_name = (known after apply)
+  [32m+[0m[0m id_account  = "ID_CONTA_AWS"
+[0m[1mrandom_uuid.unique_id: Creating...[0m[0m
+[0m[1mrandom_uuid.unique_id: Creation complete after 0s [id=1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1maws_s3_bucket.bucket: Creating...[0m[0m
+[0m[1maws_s3_bucket.bucket: Creation complete after 4s [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1maws_s3_bucket_versioning.bucket_versioning: Creating...[0m[0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.bucket_sse_config: Creating...[0m[0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.bucket_sse_config: Creation complete after 1s [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1maws_s3_bucket_versioning.bucket_versioning: Creation complete after 2s [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1m[32m
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0maws_region = "us-east-1"
+bucket_name = "artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c"
+id_account = "ID_CONTA_AWS"
+--------------------------------------------------------------------------------------
+
+------------------------Recursos Iniciais Criados-------------------------------
+BucketName -> artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c
+--------------------------------------------------------------------------------------
+
+------------------------Atualizando arquivos com os dados corretos-------------------
+
+------------------------Enviando aplicações para o Bucket criado---------------------
+
+------------------------Criando os recursos restantes da stack-------------------------
+[0m[1mrandom_uuid.unique_id: Refreshing state... [id=1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1mdata.aws_region.current: Reading...[0m[0m
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1maws_s3_bucket.bucket: Refreshing state... [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1mdata.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 1s [id=ID_CONTA_AWS][0m
+[0m[1maws_s3_bucket_versioning.bucket_versioning: Refreshing state... [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.bucket_sse_config: Refreshing state... [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_apigatewayv2_api.api[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_api" "api" {
+      [32m+[0m[0m api_endpoint                 = (known after apply)
+      [32m+[0m[0m api_key_selection_expression = "$request.header.x-api-key"
+      [32m+[0m[0m arn                          = (known after apply)
+      [32m+[0m[0m execution_arn                = (known after apply)
+      [32m+[0m[0m id                           = (known after apply)
+      [32m+[0m[0m name                         = "http-crud-tutorial-api"
+      [32m+[0m[0m protocol_type                = "HTTP"
+      [32m+[0m[0m route_selection_expression   = "$request.method $request.path"
+      [32m+[0m[0m tags_all                     = (known after apply)
+    }
+
+[1m  # aws_apigatewayv2_integration.integration[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_integration" "integration" {
+      [32m+[0m[0m api_id                                    = (known after apply)
+      [32m+[0m[0m connection_type                           = "INTERNET"
+      [32m+[0m[0m id                                        = (known after apply)
+      [32m+[0m[0m integration_method                        = "POST"
+      [32m+[0m[0m integration_response_selection_expression = (known after apply)
+      [32m+[0m[0m integration_type                          = "AWS_PROXY"
+      [32m+[0m[0m integration_uri                           = (known after apply)
+      [32m+[0m[0m payload_format_version                    = "2.0"
+      [32m+[0m[0m timeout_milliseconds                      = (known after apply)
+    }
+
+[1m  # aws_apigatewayv2_route.api_route_delete_items_id[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_route" "api_route_delete_items_id" {
+      [32m+[0m[0m api_id             = (known after apply)
+      [32m+[0m[0m api_key_required   = false
+      [32m+[0m[0m authorization_type = "NONE"
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m route_key          = "DELETE /items/{id}"
+      [32m+[0m[0m target             = (known after apply)
+    }
+
+[1m  # aws_apigatewayv2_route.api_route_get_items[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_route" "api_route_get_items" {
+      [32m+[0m[0m api_id             = (known after apply)
+      [32m+[0m[0m api_key_required   = false
+      [32m+[0m[0m authorization_type = "NONE"
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m route_key          = "GET /items"
+      [32m+[0m[0m target             = (known after apply)
+    }
+
+[1m  # aws_apigatewayv2_route.api_route_get_items_id[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_route" "api_route_get_items_id" {
+      [32m+[0m[0m api_id             = (known after apply)
+      [32m+[0m[0m api_key_required   = false
+      [32m+[0m[0m authorization_type = "NONE"
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m route_key          = "GET /items/{id}"
+      [32m+[0m[0m target             = (known after apply)
+    }
+
+[1m  # aws_apigatewayv2_route.api_route_put_items[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_route" "api_route_put_items" {
+      [32m+[0m[0m api_id             = (known after apply)
+      [32m+[0m[0m api_key_required   = false
+      [32m+[0m[0m authorization_type = "NONE"
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m route_key          = "PUT /items"
+      [32m+[0m[0m target             = (known after apply)
+    }
+
+[1m  # aws_apigatewayv2_stage.api_stage[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_stage" "api_stage" {
+      [32m+[0m[0m api_id        = (known after apply)
+      [32m+[0m[0m arn           = (known after apply)
+      [32m+[0m[0m auto_deploy   = true
+      [32m+[0m[0m deployment_id = (known after apply)
+      [32m+[0m[0m execution_arn = (known after apply)
+      [32m+[0m[0m id            = (known after apply)
+      [32m+[0m[0m invoke_url    = (known after apply)
+      [32m+[0m[0m name          = "$default"
+      [32m+[0m[0m tags_all      = (known after apply)
+    }
+
+[1m  # aws_cloudwatch_log_group.cloudwatch_log_group[0m will be created
+[0m  [32m+[0m[0m resource "aws_cloudwatch_log_group" "cloudwatch_log_group" {
+      [32m+[0m[0m arn               = (known after apply)
+      [32m+[0m[0m id                = (known after apply)
+      [32m+[0m[0m name              = "/aws/lambda/http-crud-tutorial-function"
+      [32m+[0m[0m name_prefix       = (known after apply)
+      [32m+[0m[0m retention_in_days = 3
+      [32m+[0m[0m skip_destroy      = false
+      [32m+[0m[0m tags_all          = (known after apply)
+    }
+
+[1m  # aws_dynamodb_table.table[0m will be created
+[0m  [32m+[0m[0m resource "aws_dynamodb_table" "table" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m billing_mode     = "PAY_PER_REQUEST"
+      [32m+[0m[0m hash_key         = "id"
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m name             = "http-crud-tutorial-items"
+      [32m+[0m[0m read_capacity    = (known after apply)
+      [32m+[0m[0m stream_arn       = (known after apply)
+      [32m+[0m[0m stream_label     = (known after apply)
+      [32m+[0m[0m stream_view_type = (known after apply)
+      [32m+[0m[0m tags_all         = (known after apply)
+      [32m+[0m[0m write_capacity   = (known after apply)
+
+      [32m+[0m[0m attribute {
+          [32m+[0m[0m name = "id"
+          [32m+[0m[0m type = "S"
+        }
+    }
+
+[1m  # aws_iam_policy.lambda_policy[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_policy" "lambda_policy" {
+      [32m+[0m[0m arn         = (known after apply)
+      [32m+[0m[0m id          = (known after apply)
+      [32m+[0m[0m name        = "http-crud-tutorial-function-policy"
+      [32m+[0m[0m name_prefix = (known after apply)
+      [32m+[0m[0m path        = "/"
+      [32m+[0m[0m policy      = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action   = [
+                          [32m+[0m[0m "xray:PutTraceSegments",
+                          [32m+[0m[0m "xray:PutTelemetryRecords",
+                        ]
+                      [32m+[0m[0m Effect   = "Allow"
+                      [32m+[0m[0m Resource = "*"
+                    },
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action   = "logs:CreateLogGroup"
+                      [32m+[0m[0m Effect   = "Allow"
+                      [32m+[0m[0m Resource = "arn:aws:logs:us-east-1:ID_CONTA_AWS:*"
+                    },
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action   = [
+                          [32m+[0m[0m "logs:CreateLogStream",
+                          [32m+[0m[0m "logs:PutLogEvents",
+                        ]
+                      [32m+[0m[0m Effect   = "Allow"
+                      [32m+[0m[0m Resource = "arn:aws:logs:us-east-1:ID_CONTA_AWS:log-group:/aws/lambda/ahttp-crud-tutorial-function:*"
+                    },
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action   = [
+                          [32m+[0m[0m "dynamodb:PutItem",
+                          [32m+[0m[0m "dynamodb:DeleteItem",
+                          [32m+[0m[0m "dynamodb:GetItem",
+                          [32m+[0m[0m "dynamodb:Scan",
+                          [32m+[0m[0m "dynamodb:Query",
+                          [32m+[0m[0m "dynamodb:UpdateItem",
+                        ]
+                      [32m+[0m[0m Effect   = "Allow"
+                      [32m+[0m[0m Resource = "arn:aws:dynamodb:us-east-1:ID_CONTA_AWS:table/http-crud-tutorial-items"
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m policy_id   = (known after apply)
+      [32m+[0m[0m tags        = {
+          [32m+[0m[0m "StackName" = "LAB01-31CLD"
+        }
+      [32m+[0m[0m tags_all    = {
+          [32m+[0m[0m "StackName" = "LAB01-31CLD"
+        }
+    }
+
+[1m  # aws_iam_role.lambda_role[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role" "lambda_role" {
+      [32m+[0m[0m arn                   = (known after apply)
+      [32m+[0m[0m assume_role_policy    = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = "sts:AssumeRole"
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = {
+                          [32m+[0m[0m Service = "lambda.amazonaws.com"
+                        }
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m create_date           = (known after apply)
+      [32m+[0m[0m force_detach_policies = false
+      [32m+[0m[0m id                    = (known after apply)
+      [32m+[0m[0m managed_policy_arns   = (known after apply)
+      [32m+[0m[0m max_session_duration  = 3600
+      [32m+[0m[0m name                  = "http-crud-tutorial-role"
+      [32m+[0m[0m name_prefix           = (known after apply)
+      [32m+[0m[0m path                  = "/"
+      [32m+[0m[0m tags                  = {
+          [32m+[0m[0m "StackName" = "LAB01-31CLD"
+        }
+      [32m+[0m[0m tags_all              = {
+          [32m+[0m[0m "StackName" = "LAB01-31CLD"
+        }
+      [32m+[0m[0m unique_id             = (known after apply)
+    }
+
+[1m  # aws_lambda_function.lambda[0m will be created
+[0m  [32m+[0m[0m resource "aws_lambda_function" "lambda" {
+      [32m+[0m[0m architectures                  = (known after apply)
+      [32m+[0m[0m arn                            = (known after apply)
+      [32m+[0m[0m function_name                  = "http-crud-tutorial-function"
+      [32m+[0m[0m handler                        = "index.handler"
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m invoke_arn                     = (known after apply)
+      [32m+[0m[0m last_modified                  = (known after apply)
+      [32m+[0m[0m memory_size                    = 128
+      [32m+[0m[0m package_type                   = "Zip"
+      [32m+[0m[0m publish                        = false
+      [32m+[0m[0m qualified_arn                  = (known after apply)
+      [32m+[0m[0m qualified_invoke_arn           = (known after apply)
+      [32m+[0m[0m reserved_concurrent_executions = -1
+      [32m+[0m[0m role                           = (known after apply)
+      [32m+[0m[0m runtime                        = "nodejs14.x"
+      [32m+[0m[0m s3_bucket                      = "artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c"
+      [32m+[0m[0m s3_key                         = "apps/http-crud-tutorial-function/http-crud-tutorial-function.zip"
+      [32m+[0m[0m signing_job_arn                = (known after apply)
+      [32m+[0m[0m signing_profile_version_arn    = (known after apply)
+      [32m+[0m[0m skip_destroy                   = false
+      [32m+[0m[0m source_code_hash               = (known after apply)
+      [32m+[0m[0m source_code_size               = (known after apply)
+      [32m+[0m[0m tags                           = {
+          [32m+[0m[0m "StackName" = "LAB01-31CLD"
+        }
+      [32m+[0m[0m tags_all                       = {
+          [32m+[0m[0m "StackName" = "LAB01-31CLD"
+        }
+      [32m+[0m[0m timeout                        = 30
+      [32m+[0m[0m version                        = (known after apply)
+
+      [32m+[0m[0m tracing_config {
+          [32m+[0m[0m mode = "Active"
+        }
+    }
+
+[1m  # aws_lambda_permission.allow_api_invoke_items[0m will be created
+[0m  [32m+[0m[0m resource "aws_lambda_permission" "allow_api_invoke_items" {
+      [32m+[0m[0m action              = "lambda:InvokeFunction"
+      [32m+[0m[0m function_name       = (known after apply)
+      [32m+[0m[0m id                  = (known after apply)
+      [32m+[0m[0m principal           = "apigateway.amazonaws.com"
+      [32m+[0m[0m source_arn          = (known after apply)
+      [32m+[0m[0m statement_id        = (known after apply)
+      [32m+[0m[0m statement_id_prefix = (known after apply)
+    }
+
+[1m  # aws_lambda_permission.allow_api_invoke_items_id[0m will be created
+[0m  [32m+[0m[0m resource "aws_lambda_permission" "allow_api_invoke_items_id" {
+      [32m+[0m[0m action              = "lambda:InvokeFunction"
+      [32m+[0m[0m function_name       = (known after apply)
+      [32m+[0m[0m id                  = (known after apply)
+      [32m+[0m[0m principal           = "apigateway.amazonaws.com"
+      [32m+[0m[0m source_arn          = (known after apply)
+      [32m+[0m[0m statement_id        = (known after apply)
+      [32m+[0m[0m statement_id_prefix = (known after apply)
+    }
+
+[1mPlan:[0m 14 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m api         = (known after apply)
+  [32m+[0m[0m lambda_arn  = (known after apply)
+  [32m+[0m[0m table_name  = "http-crud-tutorial-items"
+[0m[1maws_iam_policy.lambda_policy: Creating...[0m[0m
+[0m[1maws_cloudwatch_log_group.cloudwatch_log_group: Creating...[0m[0m
+[0m[1maws_dynamodb_table.table: Creating...[0m[0m
+[0m[1maws_iam_policy.lambda_policy: Creation complete after 1s [id=arn:aws:iam::ID_CONTA_AWS:policy/http-crud-tutorial-function-policy][0m
+[0m[1maws_iam_role.lambda_role: Creating...[0m[0m
+[0m[1maws_cloudwatch_log_group.cloudwatch_log_group: Creation complete after 1s [id=/aws/lambda/http-crud-tutorial-function][0m
+[0m[1maws_iam_role.lambda_role: Creation complete after 1s [id=http-crud-tutorial-role][0m
+[0m[1maws_lambda_function.lambda: Creating...[0m[0m
+[0m[1maws_dynamodb_table.table: Creation complete after 9s [id=http-crud-tutorial-items][0m
+[0m[1maws_lambda_function.lambda: Still creating... [10s elapsed][0m[0m
+[0m[1maws_lambda_function.lambda: Creation complete after 15s [id=http-crud-tutorial-function][0m
+[0m[1maws_apigatewayv2_api.api: Creating...[0m[0m
+[0m[1maws_apigatewayv2_api.api: Creation complete after 1s [id=ID_APIGTW][0m
+[0m[1maws_apigatewayv2_integration.integration: Creating...[0m[0m
+[0m[1maws_apigatewayv2_stage.api_stage: Creating...[0m[0m
+[0m[1maws_apigatewayv2_integration.integration: Creation complete after 1s [id=qvd3k24][0m
+[0m[1maws_apigatewayv2_route.api_route_get_items_id: Creating...[0m[0m
+[0m[1maws_apigatewayv2_route.api_route_delete_items_id: Creating...[0m[0m
+[0m[1maws_apigatewayv2_route.api_route_get_items: Creating...[0m[0m
+[0m[1maws_apigatewayv2_route.api_route_put_items: Creating...[0m[0m
+[0m[1maws_apigatewayv2_route.api_route_put_items: Creation complete after 0s [id=jfpk9gu][0m
+[0m[1maws_apigatewayv2_route.api_route_get_items_id: Creation complete after 1s [id=m8ms6c3][0m
+[0m[1maws_apigatewayv2_route.api_route_get_items: Creation complete after 1s [id=hz9sho6][0m
+[0m[1maws_apigatewayv2_stage.api_stage: Creation complete after 2s [id=$default][0m
+[0m[1maws_lambda_permission.allow_api_invoke_items: Creating...[0m[0m
+[0m[1maws_lambda_permission.allow_api_invoke_items_id: Creating...[0m[0m
+[0m[1maws_apigatewayv2_route.api_route_delete_items_id: Creation complete after 1s [id=70as03r][0m
+[0m[1maws_lambda_permission.allow_api_invoke_items: Creation complete after 0s [id=terraform-20230908205324574500000001][0m
+[0m[1maws_lambda_permission.allow_api_invoke_items_id: Creation complete after 1s [id=terraform-20230908205324577000000002][0m
+[0m[1m[32m
+Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mapi = "https://ID_APIGTW.execute-api.us-east-1.amazonaws.com"
+aws_region = "us-east-1"
+bucket_name = "artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c"
+id_account = "ID_CONTA_AWS"
+lambda_arn = "arn:aws:lambda:us-east-1:ID_CONTA_AWS:function:http-crud-tutorial-function"
+table_name = "http-crud-tutorial-items"
+--------------------------------------------------------------------------------------
+
+------------------------Instalando o js-beautify ------------------------
+C:\Users\joaosantino\AppData\Roaming\npm\css-beautify -> C:\Users\joaosantino\AppData\Roaming\npm\node_modules\js-beautify\js\bin\css-beautify.js
+C:\Users\joaosantino\AppData\Roaming\npm\html-beautify -> C:\Users\joaosantino\AppData\Roaming\npm\node_modules\js-beautify\js\bin\html-beautify.js
+C:\Users\joaosantino\AppData\Roaming\npm\js-beautify -> C:\Users\joaosantino\AppData\Roaming\npm\node_modules\js-beautify\js\bin\js-beautify.js
++ js-beautify@1.14.9
+updated 1 package in 2.229s
+
+--------------------Setando a variavel de ambiente INVOKE_URL------------------------
+
+--------------------Realizando PUT /items em https://ID_APIGTW.execute-api.us-east-1.amazonaws.com------------------------
+"Put item fsmafj241"
+--------------------------------------------------------------------------------------------------
+
+--------------------Realizando GET /items em https://ID_APIGTW.execute-api.us-east-1.amazonaws.com------------------------
+{
+    "Items": [{
+        "price": 100000,
+        "id": "fsmafj241",
+        "name": "joaosantino"
+    }],
+    "Count": 1,
+    "ScannedCount": 1
+}
+-----------------------------------------------------------------------------------------------
+
+--------------------Realizando GET /items/{id} em https://ID_APIGTW.execute-api.us-east-1.amazonaws.com------------------------
+{
+    "Item": {
+        "price": 100000,
+        "id": "fsmafj241",
+        "name": "joaosantino"
+    }
+}
+-------------------------------------------------------------------------------------------------
+
+--------------------Realizando DELETE /items/{id} em https://ID_APIGTW.execute-api.us-east-1.amazonaws.com------------------------
+"Deleted item fsmafj241"
+----------------------------------------------------------------------------------------------------
+
+--------------------Confirmando que tudo foi deletado em http-crud-tutorial-items------------------------
+{
+    "Items": [],
+    "Count": 0,
+    "ScannedCount": 0
+}
+----------------------------------------------------------------------------------------------------

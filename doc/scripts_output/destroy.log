@@ -1,0 +1,419 @@
+
+-----------------------------Deletando todos os recursos-------------------------------
+Removed aws_s3_bucket.bucket
+Successfully removed 1 resource instance(s).
+[0m[1mrandom_uuid.unique_id: Refreshing state... [id=1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1mdata.aws_region.current: Reading...[0m[0m
+[0m[1maws_iam_policy.lambda_policy: Refreshing state... [id=arn:aws:iam::ID_CONTA_AWS:policy/http-crud-tutorial-function-policy][0m
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1maws_cloudwatch_log_group.cloudwatch_log_group: Refreshing state... [id=/aws/lambda/http-crud-tutorial-function][0m
+[0m[1mdata.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1maws_dynamodb_table.table: Refreshing state... [id=http-crud-tutorial-items][0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.bucket_sse_config: Refreshing state... [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1maws_s3_bucket_versioning.bucket_versioning: Refreshing state... [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 1s [id=ID_CONTA_AWS][0m
+[0m[1maws_iam_role.lambda_role: Refreshing state... [id=http-crud-tutorial-role][0m
+[0m[1maws_lambda_function.lambda: Refreshing state... [id=http-crud-tutorial-function][0m
+[0m[1maws_apigatewayv2_api.api: Refreshing state... [id=ID_APIGTW][0m
+[0m[1maws_apigatewayv2_integration.integration: Refreshing state... [id=qvd3k24][0m
+[0m[1maws_apigatewayv2_stage.api_stage: Refreshing state... [id=$default][0m
+[0m[1maws_apigatewayv2_route.api_route_delete_items_id: Refreshing state... [id=70as03r][0m
+[0m[1maws_apigatewayv2_route.api_route_get_items_id: Refreshing state... [id=m8ms6c3][0m
+[0m[1maws_apigatewayv2_route.api_route_get_items: Refreshing state... [id=hz9sho6][0m
+[0m[1maws_apigatewayv2_route.api_route_put_items: Refreshing state... [id=jfpk9gu][0m
+[0m[1maws_lambda_permission.allow_api_invoke_items_id: Refreshing state... [id=terraform-20230908205324577000000002][0m
+[0m[1maws_lambda_permission.allow_api_invoke_items: Refreshing state... [id=terraform-20230908205324574500000001][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_apigatewayv2_api.api[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_api" "api" {
+      [31m-[0m[0m api_endpoint                 = "https://ID_APIGTW.execute-api.us-east-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m api_key_selection_expression = "$request.header.x-api-key" [90m-> null[0m[0m
+      [31m-[0m[0m arn                          = "arn:aws:apigateway:us-east-1::/apis/ID_APIGTW" [90m-> null[0m[0m
+      [31m-[0m[0m disable_execute_api_endpoint = false [90m-> null[0m[0m
+      [31m-[0m[0m execution_arn                = "arn:aws:execute-api:us-east-1:ID_CONTA_AWS:ID_APIGTW" [90m-> null[0m[0m
+      [31m-[0m[0m id                           = "ID_APIGTW" [90m-> null[0m[0m
+      [31m-[0m[0m name                         = "http-crud-tutorial-api" [90m-> null[0m[0m
+      [31m-[0m[0m protocol_type                = "HTTP" [90m-> null[0m[0m
+      [31m-[0m[0m route_selection_expression   = "$request.method $request.path" [90m-> null[0m[0m
+      [31m-[0m[0m tags                         = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                     = {} [90m-> null[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_integration.integration[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_integration" "integration" {
+      [31m-[0m[0m api_id                 = "ID_APIGTW" [90m-> null[0m[0m
+      [31m-[0m[0m connection_type        = "INTERNET" [90m-> null[0m[0m
+      [31m-[0m[0m id                     = "qvd3k24" [90m-> null[0m[0m
+      [31m-[0m[0m integration_method     = "POST" [90m-> null[0m[0m
+      [31m-[0m[0m integration_type       = "AWS_PROXY" [90m-> null[0m[0m
+      [31m-[0m[0m integration_uri        = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:ID_CONTA_AWS:function:http-crud-tutorial-function/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m payload_format_version = "2.0" [90m-> null[0m[0m
+      [31m-[0m[0m request_parameters     = {} [90m-> null[0m[0m
+      [31m-[0m[0m request_templates      = {} [90m-> null[0m[0m
+      [31m-[0m[0m timeout_milliseconds   = 30000 [90m-> null[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_route.api_route_delete_items_id[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_route" "api_route_delete_items_id" {
+      [31m-[0m[0m api_id               = "ID_APIGTW" [90m-> null[0m[0m
+      [31m-[0m[0m api_key_required     = false [90m-> null[0m[0m
+      [31m-[0m[0m authorization_scopes = [] [90m-> null[0m[0m
+      [31m-[0m[0m authorization_type   = "NONE" [90m-> null[0m[0m
+      [31m-[0m[0m id                   = "70as03r" [90m-> null[0m[0m
+      [31m-[0m[0m request_models       = {} [90m-> null[0m[0m
+      [31m-[0m[0m route_key            = "DELETE /items/{id}" [90m-> null[0m[0m
+      [31m-[0m[0m target               = "integrations/qvd3k24" [90m-> null[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_route.api_route_get_items[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_route" "api_route_get_items" {
+      [31m-[0m[0m api_id               = "ID_APIGTW" [90m-> null[0m[0m
+      [31m-[0m[0m api_key_required     = false [90m-> null[0m[0m
+      [31m-[0m[0m authorization_scopes = [] [90m-> null[0m[0m
+      [31m-[0m[0m authorization_type   = "NONE" [90m-> null[0m[0m
+      [31m-[0m[0m id                   = "hz9sho6" [90m-> null[0m[0m
+      [31m-[0m[0m request_models       = {} [90m-> null[0m[0m
+      [31m-[0m[0m route_key            = "GET /items" [90m-> null[0m[0m
+      [31m-[0m[0m target               = "integrations/qvd3k24" [90m-> null[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_route.api_route_get_items_id[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_route" "api_route_get_items_id" {
+      [31m-[0m[0m api_id               = "ID_APIGTW" [90m-> null[0m[0m
+      [31m-[0m[0m api_key_required     = false [90m-> null[0m[0m
+      [31m-[0m[0m authorization_scopes = [] [90m-> null[0m[0m
+      [31m-[0m[0m authorization_type   = "NONE" [90m-> null[0m[0m
+      [31m-[0m[0m id                   = "m8ms6c3" [90m-> null[0m[0m
+      [31m-[0m[0m request_models       = {} [90m-> null[0m[0m
+      [31m-[0m[0m route_key            = "GET /items/{id}" [90m-> null[0m[0m
+      [31m-[0m[0m target               = "integrations/qvd3k24" [90m-> null[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_route.api_route_put_items[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_route" "api_route_put_items" {
+      [31m-[0m[0m api_id               = "ID_APIGTW" [90m-> null[0m[0m
+      [31m-[0m[0m api_key_required     = false [90m-> null[0m[0m
+      [31m-[0m[0m authorization_scopes = [] [90m-> null[0m[0m
+      [31m-[0m[0m authorization_type   = "NONE" [90m-> null[0m[0m
+      [31m-[0m[0m id                   = "jfpk9gu" [90m-> null[0m[0m
+      [31m-[0m[0m request_models       = {} [90m-> null[0m[0m
+      [31m-[0m[0m route_key            = "PUT /items" [90m-> null[0m[0m
+      [31m-[0m[0m target               = "integrations/qvd3k24" [90m-> null[0m[0m
+    }
+
+[1m  # aws_apigatewayv2_stage.api_stage[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_apigatewayv2_stage" "api_stage" {
+      [31m-[0m[0m api_id          = "ID_APIGTW" [90m-> null[0m[0m
+      [31m-[0m[0m arn             = "arn:aws:apigateway:us-east-1::/apis/ID_APIGTW/stages/$default" [90m-> null[0m[0m
+      [31m-[0m[0m auto_deploy     = true [90m-> null[0m[0m
+      [31m-[0m[0m deployment_id   = "0csrwt" [90m-> null[0m[0m
+      [31m-[0m[0m execution_arn   = "arn:aws:execute-api:us-east-1:ID_CONTA_AWS:ID_APIGTW/$default" [90m-> null[0m[0m
+      [31m-[0m[0m id              = "$default" [90m-> null[0m[0m
+      [31m-[0m[0m invoke_url      = "https://ID_APIGTW.execute-api.us-east-1.amazonaws.com/" [90m-> null[0m[0m
+      [31m-[0m[0m name            = "$default" [90m-> null[0m[0m
+      [31m-[0m[0m stage_variables = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags            = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all        = {} [90m-> null[0m[0m
+
+      [31m-[0m[0m default_route_settings {
+          [31m-[0m[0m data_trace_enabled       = false [90m-> null[0m[0m
+          [31m-[0m[0m detailed_metrics_enabled = false [90m-> null[0m[0m
+          [31m-[0m[0m throttling_burst_limit   = 0 [90m-> null[0m[0m
+          [31m-[0m[0m throttling_rate_limit    = 0 [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_cloudwatch_log_group.cloudwatch_log_group[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_cloudwatch_log_group" "cloudwatch_log_group" {
+      [31m-[0m[0m arn               = "arn:aws:logs:us-east-1:ID_CONTA_AWS:log-group:/aws/lambda/http-crud-tutorial-function" [90m-> null[0m[0m
+      [31m-[0m[0m id                = "/aws/lambda/http-crud-tutorial-function" [90m-> null[0m[0m
+      [31m-[0m[0m name              = "/aws/lambda/http-crud-tutorial-function" [90m-> null[0m[0m
+      [31m-[0m[0m retention_in_days = 3 [90m-> null[0m[0m
+      [31m-[0m[0m skip_destroy      = false [90m-> null[0m[0m
+      [31m-[0m[0m tags              = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all          = {} [90m-> null[0m[0m
+    }
+
+[1m  # aws_dynamodb_table.table[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_dynamodb_table" "table" {
+      [31m-[0m[0m arn                         = "arn:aws:dynamodb:us-east-1:ID_CONTA_AWS:table/http-crud-tutorial-items" [90m-> null[0m[0m
+      [31m-[0m[0m billing_mode                = "PAY_PER_REQUEST" [90m-> null[0m[0m
+      [31m-[0m[0m deletion_protection_enabled = false [90m-> null[0m[0m
+      [31m-[0m[0m hash_key                    = "id" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "http-crud-tutorial-items" [90m-> null[0m[0m
+      [31m-[0m[0m name                        = "http-crud-tutorial-items" [90m-> null[0m[0m
+      [31m-[0m[0m read_capacity               = 0 [90m-> null[0m[0m
+      [31m-[0m[0m stream_enabled              = false [90m-> null[0m[0m
+      [31m-[0m[0m table_class                 = "STANDARD" [90m-> null[0m[0m
+      [31m-[0m[0m tags                        = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                    = {} [90m-> null[0m[0m
+      [31m-[0m[0m write_capacity              = 0 [90m-> null[0m[0m
+
+      [31m-[0m[0m attribute {
+          [31m-[0m[0m name = "id" [90m-> null[0m[0m
+          [31m-[0m[0m type = "S" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m point_in_time_recovery {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m ttl {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_iam_policy.lambda_policy[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_policy" "lambda_policy" {
+      [31m-[0m[0m arn       = "arn:aws:iam::ID_CONTA_AWS:policy/http-crud-tutorial-function-policy" [90m-> null[0m[0m
+      [31m-[0m[0m id        = "arn:aws:iam::ID_CONTA_AWS:policy/http-crud-tutorial-function-policy" [90m-> null[0m[0m
+      [31m-[0m[0m name      = "http-crud-tutorial-function-policy" [90m-> null[0m[0m
+      [31m-[0m[0m path      = "/" [90m-> null[0m[0m
+      [31m-[0m[0m policy    = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "xray:PutTraceSegments",
+                          [31m-[0m[0m "xray:PutTelemetryRecords",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "*"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = "logs:CreateLogGroup"
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:logs:us-east-1:ID_CONTA_AWS:*"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "logs:CreateLogStream",
+                          [31m-[0m[0m "logs:PutLogEvents",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:logs:us-east-1:ID_CONTA_AWS:log-group:/aws/lambda/http-crud-tutorial-function:*"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action   = [
+                          [31m-[0m[0m "dynamodb:PutItem",
+                          [31m-[0m[0m "dynamodb:DeleteItem",
+                          [31m-[0m[0m "dynamodb:GetItem",
+                          [31m-[0m[0m "dynamodb:Scan",
+                          [31m-[0m[0m "dynamodb:Query",
+                          [31m-[0m[0m "dynamodb:UpdateItem",
+                        ]
+                      [31m-[0m[0m Effect   = "Allow"
+                      [31m-[0m[0m Resource = "arn:aws:dynamodb:us-east-1:ID_CONTA_AWS:table/http-crud-tutorial-items"
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m policy_id = "ANPATINOQFP7KO3WKSGDT" [90m-> null[0m[0m
+      [31m-[0m[0m tags      = {
+          [31m-[0m[0m "StackName" = "LAB01-31CLD"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all  = {
+          [31m-[0m[0m "StackName" = "LAB01-31CLD"
+        } [90m-> null[0m[0m
+    }
+
+[1m  # aws_iam_role.lambda_role[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role" "lambda_role" {
+      [31m-[0m[0m arn                   = "arn:aws:iam::ID_CONTA_AWS:role/http-crud-tutorial-role" [90m-> null[0m[0m
+      [31m-[0m[0m assume_role_policy    = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = "sts:AssumeRole"
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Principal = {
+                          [31m-[0m[0m Service = "lambda.amazonaws.com"
+                        }
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m create_date           = "2023-09-08T20:53:03Z" [90m-> null[0m[0m
+      [31m-[0m[0m force_detach_policies = false [90m-> null[0m[0m
+      [31m-[0m[0m id                    = "http-crud-tutorial-role" [90m-> null[0m[0m
+      [31m-[0m[0m managed_policy_arns   = [
+          [31m-[0m[0m "arn:aws:iam::ID_CONTA_AWS:policy/http-crud-tutorial-function-policy",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m max_session_duration  = 3600 [90m-> null[0m[0m
+      [31m-[0m[0m name                  = "http-crud-tutorial-role" [90m-> null[0m[0m
+      [31m-[0m[0m path                  = "/" [90m-> null[0m[0m
+      [31m-[0m[0m tags                  = {
+          [31m-[0m[0m "StackName" = "LAB01-31CLD"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all              = {
+          [31m-[0m[0m "StackName" = "LAB01-31CLD"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m unique_id             = "AROATINOQFP7HYOU7E27F" [90m-> null[0m[0m
+    }
+
+[1m  # aws_lambda_function.lambda[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_lambda_function" "lambda" {
+      [31m-[0m[0m architectures                  = [
+          [31m-[0m[0m "x86_64",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m arn                            = "arn:aws:lambda:us-east-1:ID_CONTA_AWS:function:http-crud-tutorial-function" [90m-> null[0m[0m
+      [31m-[0m[0m function_name                  = "http-crud-tutorial-function" [90m-> null[0m[0m
+      [31m-[0m[0m handler                        = "index.handler" [90m-> null[0m[0m
+      [31m-[0m[0m id                             = "http-crud-tutorial-function" [90m-> null[0m[0m
+      [31m-[0m[0m invoke_arn                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:ID_CONTA_AWS:function:http-crud-tutorial-function/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m last_modified                  = "2023-09-08T21:32:34.000+0000" [90m-> null[0m[0m
+      [31m-[0m[0m layers                         = [] [90m-> null[0m[0m
+      [31m-[0m[0m memory_size                    = 128 [90m-> null[0m[0m
+      [31m-[0m[0m package_type                   = "Zip" [90m-> null[0m[0m
+      [31m-[0m[0m publish                        = false [90m-> null[0m[0m
+      [31m-[0m[0m qualified_arn                  = "arn:aws:lambda:us-east-1:ID_CONTA_AWS:function:http-crud-tutorial-function:$LATEST" [90m-> null[0m[0m
+      [31m-[0m[0m qualified_invoke_arn           = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:ID_CONTA_AWS:function:http-crud-tutorial-function:$LATEST/invocations" [90m-> null[0m[0m
+      [31m-[0m[0m reserved_concurrent_executions = -1 [90m-> null[0m[0m
+      [31m-[0m[0m role                           = "arn:aws:iam::ID_CONTA_AWS:role/http-crud-tutorial-role" [90m-> null[0m[0m
+      [31m-[0m[0m runtime                        = "nodejs14.x" [90m-> null[0m[0m
+      [31m-[0m[0m s3_bucket                      = "artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c" [90m-> null[0m[0m
+      [31m-[0m[0m s3_key                         = "apps/http-crud-tutorial-function/http-crud-tutorial-function.zip" [90m-> null[0m[0m
+      [31m-[0m[0m skip_destroy                   = false [90m-> null[0m[0m
+      [31m-[0m[0m source_code_hash               = "MBsaWKaq14tcbOUZiPVAWDHjginW8L6VHv+BQFUum9c=" [90m-> null[0m[0m
+      [31m-[0m[0m source_code_size               = 836 [90m-> null[0m[0m
+      [31m-[0m[0m tags                           = {
+          [31m-[0m[0m "StackName" = "LAB01-31CLD"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                       = {
+          [31m-[0m[0m "StackName" = "LAB01-31CLD"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m timeout                        = 30 [90m-> null[0m[0m
+      [31m-[0m[0m version                        = "$LATEST" [90m-> null[0m[0m
+
+      [31m-[0m[0m ephemeral_storage {
+          [31m-[0m[0m size = 512 [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m tracing_config {
+          [31m-[0m[0m mode = "Active" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # aws_lambda_permission.allow_api_invoke_items[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_lambda_permission" "allow_api_invoke_items" {
+      [31m-[0m[0m action              = "lambda:InvokeFunction" [90m-> null[0m[0m
+      [31m-[0m[0m function_name       = "arn:aws:lambda:us-east-1:ID_CONTA_AWS:function:http-crud-tutorial-function" [90m-> null[0m[0m
+      [31m-[0m[0m id                  = "terraform-20230908205324574500000001" [90m-> null[0m[0m
+      [31m-[0m[0m principal           = "apigateway.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m source_arn          = "arn:aws:execute-api:us-east-1:ID_CONTA_AWS:ID_APIGTW/*/*/items" [90m-> null[0m[0m
+      [31m-[0m[0m statement_id        = "terraform-20230908205324574500000001" [90m-> null[0m[0m
+      [31m-[0m[0m statement_id_prefix = "terraform-" [90m-> null[0m[0m
+    }
+
+[1m  # aws_lambda_permission.allow_api_invoke_items_id[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_lambda_permission" "allow_api_invoke_items_id" {
+      [31m-[0m[0m action              = "lambda:InvokeFunction" [90m-> null[0m[0m
+      [31m-[0m[0m function_name       = "arn:aws:lambda:us-east-1:ID_CONTA_AWS:function:http-crud-tutorial-function" [90m-> null[0m[0m
+      [31m-[0m[0m id                  = "terraform-20230908205324577000000002" [90m-> null[0m[0m
+      [31m-[0m[0m principal           = "apigateway.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m source_arn          = "arn:aws:execute-api:us-east-1:ID_CONTA_AWS:ID_APIGTW/*/*/items/{id}" [90m-> null[0m[0m
+      [31m-[0m[0m statement_id        = "terraform-20230908205324577000000002" [90m-> null[0m[0m
+      [31m-[0m[0m statement_id_prefix = "terraform-" [90m-> null[0m[0m
+    }
+
+[1m  # aws_s3_bucket_server_side_encryption_configuration.bucket_sse_config[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_sse_config" {
+      [31m-[0m[0m bucket = "artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c" [90m-> null[0m[0m
+      [31m-[0m[0m id     = "artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c" [90m-> null[0m[0m
+
+      [31m-[0m[0m rule {
+          [31m-[0m[0m bucket_key_enabled = false [90m-> null[0m[0m
+
+          [31m-[0m[0m apply_server_side_encryption_by_default {
+              [31m-[0m[0m sse_algorithm = "AES256" [90m-> null[0m[0m
+            }
+        }
+    }
+
+[1m  # aws_s3_bucket_versioning.bucket_versioning[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_s3_bucket_versioning" "bucket_versioning" {
+      [31m-[0m[0m bucket = "artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c" [90m-> null[0m[0m
+      [31m-[0m[0m id     = "artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c" [90m-> null[0m[0m
+
+      [31m-[0m[0m versioning_configuration {
+          [31m-[0m[0m status = "Enabled" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # random_uuid.unique_id[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "random_uuid" "unique_id" {
+      [31m-[0m[0m id     = "1e06e592-8f2c-a006-f131-0de789e2ac0c" [90m-> null[0m[0m
+      [31m-[0m[0m result = "1e06e592-8f2c-a006-f131-0de789e2ac0c" [90m-> null[0m[0m
+    }
+
+[1mPlan:[0m 0 to add, 0 to change, 17 to destroy.
+[0m
+Changes to Outputs:
+  [31m-[0m[0m api         = "https://ID_APIGTW.execute-api.us-east-1.amazonaws.com" [90m-> null[0m[0m
+  [31m-[0m[0m aws_region  = "us-east-1" [90m-> null[0m[0m
+  [31m-[0m[0m bucket_name = "artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c" [90m-> null[0m[0m
+  [31m-[0m[0m id_account  = "ID_CONTA_AWS" [90m-> null[0m[0m
+  [31m-[0m[0m lambda_arn  = "arn:aws:lambda:us-east-1:ID_CONTA_AWS:function:http-crud-tutorial-function" [90m-> null[0m[0m
+  [31m-[0m[0m table_name  = "http-crud-tutorial-items" [90m-> null[0m[0m
+[0m[1maws_lambda_permission.allow_api_invoke_items: Destroying... [id=terraform-20230908205324574500000001][0m[0m
+[0m[1maws_cloudwatch_log_group.cloudwatch_log_group: Destroying... [id=/aws/lambda/http-crud-tutorial-function][0m[0m
+[0m[1maws_lambda_permission.allow_api_invoke_items_id: Destroying... [id=terraform-20230908205324577000000002][0m[0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.bucket_sse_config: Destroying... [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m[0m
+[0m[1maws_apigatewayv2_route.api_route_get_items: Destroying... [id=hz9sho6][0m[0m
+[0m[1maws_apigatewayv2_route.api_route_delete_items_id: Destroying... [id=70as03r][0m[0m
+[0m[1maws_dynamodb_table.table: Destroying... [id=http-crud-tutorial-items][0m[0m
+[0m[1maws_apigatewayv2_route.api_route_put_items: Destroying... [id=jfpk9gu][0m[0m
+[0m[1maws_s3_bucket_versioning.bucket_versioning: Destroying... [id=artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c][0m[0m
+[0m[1maws_apigatewayv2_route.api_route_get_items_id: Destroying... [id=m8ms6c3][0m[0m
+[0m[1maws_apigatewayv2_route.api_route_delete_items_id: Destruction complete after 0s[0m
+[0m[1maws_apigatewayv2_route.api_route_get_items: Destruction complete after 0s[0m
+[0m[1maws_apigatewayv2_route.api_route_put_items: Destruction complete after 0s[0m
+[0m[1maws_apigatewayv2_route.api_route_get_items_id: Destruction complete after 0s[0m
+[0m[1maws_cloudwatch_log_group.cloudwatch_log_group: Destruction complete after 0s[0m
+[0m[1maws_apigatewayv2_integration.integration: Destroying... [id=qvd3k24][0m[0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.bucket_sse_config: Destruction complete after 0s[0m
+[0m[1maws_lambda_permission.allow_api_invoke_items: Destruction complete after 0s[0m
+[0m[1maws_apigatewayv2_integration.integration: Destruction complete after 0s[0m
+[0m[1maws_s3_bucket_versioning.bucket_versioning: Destruction complete after 0s[0m
+[0m[1maws_lambda_permission.allow_api_invoke_items_id: Destruction complete after 1s[0m
+[0m[1maws_apigatewayv2_stage.api_stage: Destroying... [id=$default][0m[0m
+[0m[1maws_apigatewayv2_stage.api_stage: Destruction complete after 0s[0m
+[0m[1maws_apigatewayv2_api.api: Destroying... [id=ID_APIGTW][0m[0m
+[0m[1maws_apigatewayv2_api.api: Destruction complete after 1s[0m
+[0m[1maws_lambda_function.lambda: Destroying... [id=http-crud-tutorial-function][0m[0m
+[0m[1maws_lambda_function.lambda: Destruction complete after 1s[0m
+[0m[1mrandom_uuid.unique_id: Destroying... [id=1e06e592-8f2c-a006-f131-0de789e2ac0c][0m[0m
+[0m[1maws_iam_role.lambda_role: Destroying... [id=http-crud-tutorial-role][0m[0m
+[0m[1mrandom_uuid.unique_id: Destruction complete after 0s[0m
+[0m[1maws_iam_role.lambda_role: Destruction complete after 1s[0m
+[0m[1maws_iam_policy.lambda_policy: Destroying... [id=arn:aws:iam::ID_CONTA_AWS:policy/http-crud-tutorial-function-policy][0m[0m
+[0m[1maws_dynamodb_table.table: Destruction complete after 4s[0m
+[0m[1maws_iam_policy.lambda_policy: Destruction complete after 0s[0m
+[0m[1m[32m
+Destroy complete! Resources: 17 destroyed.
+[0m----------------------------------------------------------------------------------------
+
+------------------------Deletando os itens do bucket artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c------------------------------
+delete: s3://artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c/apps/http-crud-tutorial-function/http-crud-tutorial-function.zip
+{
+    "VersionId": "TLaTN6iTGTd0IWtviA7JhlEyZFlmcDRX"
+}
+{
+    "DeleteMarker": true,
+    "VersionId": "null"
+}
+Não há mais itens para serem deletados!
+
+-----------------------------------------------------------------------------------------------------
+
+----------------------------Deletando os recursos restantes----------------------------
+
+---------------------------------------------------------------------------------------
