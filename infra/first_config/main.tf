@@ -15,13 +15,15 @@ provider "aws" {
 
 data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
+resource "random_uuid" "unique_id" {}
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "artifacts-stack-${var.bucket_name}"
+  bucket        = "artifacts-${var.bucket_name}-${random_uuid.unique_id.result}"
   force_destroy = true
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_sse_config" {
+  depends_on = [ aws_s3_bucket.bucket ]
   bucket = aws_s3_bucket.bucket.id
 
   rule {
@@ -32,6 +34,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_sse_config
 }
 
 resource "aws_s3_bucket_versioning" "bucket_versioning" {
+  depends_on = [ aws_s3_bucket.bucket ]
   bucket = aws_s3_bucket.bucket.id
   versioning_configuration {
     status = "Enabled"

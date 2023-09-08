@@ -12,9 +12,12 @@ Contextualizar arquitetura e inserir imagem
 <h5 align="center">Arquitetura da solução</h5>
 
 ## Dependências
-- [AWS CLI 2.0](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [JQ](https://jqlang.github.io/jq/download/)
+- [Node](https://nodejs.org/pt-br/download)
+- [7zip](https://www.7-zip.org/)
 - [Gitbash](https://git-scm.com/downloads)
-- [NPM](https://nodejs.org/pt-br/download)
+- [Terraform](https://developer.hashicorp.com/terraform/downloads)
+- [AWS CLI 2.0](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Visual Studio Code](https://code.visualstudio.com/download)(ou seu IDE preferido)
 
 ## Como rodar
