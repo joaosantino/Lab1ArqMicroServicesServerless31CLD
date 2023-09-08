@@ -41,7 +41,7 @@ Estas serão as dependências utilizadas por toda a infraestrutura. Recomendo qu
     Reinicie seu computador para que as variáveis de ambiente sejam aplicadas.
 
 ### -> Configuração do ambiente:
-    Neste passo, você já terá todas as dependências funcionais para este laboratório. Abra o IDE de sua preferência, contanto que o terminal Default da sua IDE seja o GitBash, caso não tenha essa configuração veja nas imagens abaixo como fazer:
+    Neste passo, você já terá todas as dependências funcionais para este laboratório. Abra o IDE de sua preferência, contanto que o terminal Default da sua IDE seja o GitBash, caso não tenha essa configuração veja nas imagens abaixo como fazer.
 
 <p align="center">
 <img src="./doc/VisualStudioTerminalConfig.png" width="800px" height="auto">
@@ -65,7 +65,7 @@ Estas serão as dependências utilizadas por toda a infraestrutura. Recomendo qu
 
         -> ./init_sh
 
-    Conforme GIF abaixo:
+    Conforme GIF abaixo.
 
 <p align="center">
 <img src="./doc/init_sh.gif" width="800px" height="auto">
@@ -85,6 +85,17 @@ Estas serão as dependências utilizadas por toda a infraestrutura. Recomendo qu
     E esta deve ser a saída final do script init.sh:
 
 <p align="center">
+<img src="./doc/init_sh_final.gif" width="800px" height="auto">
+</p>
+
+<h5 align="center">Final da execução do script init.sh</h5>
+
+    Para realizar a deleção de todos os recursos em sua conta AWS você deve executar o comando abaixo:
+        
+        -> ./destroy.sh
+    
+    O mesmo irá solicitar uma confirmação sua, então é necessário interagir com o terminal. Abaixo temos um GIF mostrando a execução do script de destruição dos recursos.
+<p align="center">
 <img src="./doc/destroy_sh.gif" width="800px" height="auto">
 </p>
 
@@ -92,7 +103,10 @@ Estas serão as dependências utilizadas por toda a infraestrutura. Recomendo qu
 
     Para ver como deve ser a saída correta de ambos os scripts executados acima, execute estes comandos em seu terminal:
 
-        -  cat doc/scripts_output/init.log
-        -  cat doc/scripts_output/destroy.log
+        ->  cat doc/scripts_output/init.log
+        ->  cat doc/scripts_output/destroy.log
 
     Desta forma, o conteúdo do arquivo estará exatamente igual ao do seu terminal, abrindo-o pelo IDE você verá caracteres especiais que indicam alguma cor para o terminal e utilizando o comando cat você verá a saída do script corretamente.
+
+### Contato
+[Linkedin](https://www.linkedin.com/in/joaosantino/)
