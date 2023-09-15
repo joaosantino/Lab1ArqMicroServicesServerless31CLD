@@ -401,19 +401,4 @@ Changes to Outputs:
 Destroy complete! Resources: 17 destroyed.
 [0m----------------------------------------------------------------------------------------
 
-------------------------Deletando os itens do bucket artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c------------------------------
-delete: s3://artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c/apps/http-crud-tutorial-function/http-crud-tutorial-function.zip
-{
-    "VersionId": "TLaTN6iTGTd0IWtviA7JhlEyZFlmcDRX"
-}
-{
-    "DeleteMarker": true,
-    "VersionId": "null"
-}
-Não há mais itens para serem deletados!
-
------------------------------------------------------------------------------------------------------
-
-----------------------------Deletando os recursos restantes----------------------------
-
----------------------------------------------------------------------------------------
+------------------------Deletando o bucket artifacts-lab01-1e06e592-8f2c-a006-f131-0de789e2ac0c------------------------------

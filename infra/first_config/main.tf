@@ -19,7 +19,6 @@ resource "random_uuid" "unique_id" {}
 
 resource "aws_s3_bucket" "bucket" {
   bucket        = "artifacts-${var.bucket_name}-${random_uuid.unique_id.result}"
-  force_destroy = true
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_sse_config" {
