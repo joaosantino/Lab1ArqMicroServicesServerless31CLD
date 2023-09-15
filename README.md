@@ -30,13 +30,14 @@ Estas serão as dependências utilizadas por toda a infraestrutura. Recomendo qu
 - [Gitbash](https://git-scm.com/downloads)
 - [Terraform](https://developer.hashicorp.com/terraform/downloads)
 - [AWS CLI 2.0](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [Python 3.9.5](https://www.python.org/downloads/windows/)
 - [Visual Studio Code](https://code.visualstudio.com/download) (ou seu IDE preferido)
 
 ## Como rodar
 ### -> Instalação de dependências:
-Após realizar o clone do repositório na sua máquina, vá até a pasta dependencies/ e procure pela primeira parte do arquivoInstalar_Dependencias_v1.zip e realize a extração do mesmo.
+Após realizar o clone do repositório na sua máquina, vá até a pasta dependencies/ e procure pela primeira parte do arquivo Instalar_Dependencias_v1.1.zip e realize a extração do mesmo.
 
-Após extração, execute o arquivo Instalar_Dependencias_v1.exe, o mesmo irá instalar todas as dependências informadas no tópico anterior. 
+Após extração, execute o arquivo Instalar_Dependencias_v1.1.exe, o mesmo irá instalar todas as dependências informadas no tópico anterior. 
 
 Reinicie seu computador para que as variáveis de ambiente sejam aplicadas.
 
