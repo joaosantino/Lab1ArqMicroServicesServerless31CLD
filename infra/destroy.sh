@@ -15,8 +15,8 @@ bucket_name=$(terraform output -raw bucket_name)
 echo -e "\n-----------------------------Removendo o bucket ${bucket_name} do Destroy-------------------------------"
 terraform state rm aws_s3_bucket.bucket
 
-sleep 60
 echo -e "\n-----------------------------Destruindo todos os recursos com exceção do bucket ${bucket_name}-------------------------------"
+sleep 60
 terraform destroy -auto-approve
 
 rm -rf iam
