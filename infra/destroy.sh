@@ -5,7 +5,7 @@ initial_message="Tem certeza que deseja deletar tudo? Pressione ENTER para conti
 read_from_user(){
     read -p "${1}" my_var 
 }
-# read_from_user "${initial_message}"
+read_from_user "${initial_message}"
 
 # shellcheck disable=SC2164
 cd first_config/
