@@ -16,7 +16,7 @@ echo -e "\n-----------------------------Removendo o bucket ${bucket_name} do Des
 terraform state rm aws_s3_bucket.bucket
 
 echo -e "\n-----------------------------Destruindo todos os recursos com exceção do bucket ${bucket_name}-------------------------------"
-sleep 60
+sleep 30
 terraform destroy -auto-approve
 
 rm -rf iam
@@ -33,4 +33,4 @@ python -m pip install boto3 --quiet --user
 
 echo -e "\n--------------------------------- -Deletando o bucket ---------------------------------------------"
 python ../s3_delete.py ${bucket_name}
-echo -e "-----------------------------------------------------------------------------------------------------"
+echo "-----------------------------------------------------------------------------------------------------"
